@@ -14,10 +14,10 @@
 
         <div class="tools-cont scale-tools">
             <div class="tool-wrapper">
-                <i class="fa-solid fa-pen"></i>
+                <i class="fa-solid fa-pen" style="color: red"></i>
                 <div class="pencil-tool-cont">
                     <div class="pencil-width-cont">
-                        <input type="range" min="2" max="10" value="3">
+                        <input type="range" min="2" max="10" value="3" class="pencil-width">
                     </div>
                     <div class="pencil-color-cont">
                         <div class="black pencil-color"></div>
@@ -30,7 +30,7 @@
             <div class="tool-wrapper">
                 <i class="fa-solid fa-eraser" style="color: hotpink"></i>
                 <div class="eraser-tool-cont">
-                    <input type="range" min="2" max="10" value="3">
+                    <input type="range" min="2" max="50" value="3" class="eraser-width">
                 </div>
             </div>
             <i class="fa-solid fa-note-sticky" style="color: gold"></i>
@@ -40,11 +40,11 @@
             <i class="fa-solid fa-rotate-right" style="color: #0099FF"></i>
         </div>
 
-
-
-
     </div>
 
+    <canvas></canvas>
+
     <script src="tools.js"></script>
+    <script src="canvas.js"></script>
 </body>
 </html>

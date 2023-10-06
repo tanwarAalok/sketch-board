@@ -6,12 +6,13 @@ let stickyNoteIcon = document.querySelector('.fa-note-sticky');
 let uploadIcon = document.querySelector('.fa-upload');
 
 let optionFlag = true;
-let pencilToolFlag = false, eraserToolFlag = false;
+let pencilFlag = false;
+let eraserFlag = false;
 
 pencilIcon.addEventListener('click', (e) => {
-    pencilToolFlag = !pencilToolFlag;
+    pencilFlag = !pencilFlag;
 
-    if(pencilToolFlag){
+    if(pencilFlag){
         openPencilCont();
         closeErasorCont();
     }
@@ -19,9 +20,9 @@ pencilIcon.addEventListener('click', (e) => {
 })
 
 erasorIcon.addEventListener('click', (e) => {
-    eraserToolFlag = !eraserToolFlag;
+    eraserFlag = !eraserFlag;
 
-    if(eraserToolFlag){
+    if(eraserFlag){
         openErasorCont();
         closePencilCont();
     }
