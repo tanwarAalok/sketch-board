@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Sketch-Board</title>
+</head>
+<body>
+    <div class="head-cont">
+        <div class="options-cont">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="tools-cont scale-tools">
+            <div class="tool-wrapper">
+                <i class="fa-solid fa-pen"></i>
+                <div class="pencil-tool-cont">
+                    <div class="pencil-width-cont">
+                        <input type="range" min="2" max="10" value="3">
+                    </div>
+                    <div class="pencil-color-cont">
+                        <div class="black pencil-color"></div>
+                        <div class="red pencil-color"></div>
+                        <div class="blue pencil-color"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tool-wrapper">
+                <i class="fa-solid fa-eraser" style="color: hotpink"></i>
+                <div class="eraser-tool-cont">
+                    <input type="range" min="2" max="10" value="3">
+                </div>
+            </div>
+            <i class="fa-solid fa-note-sticky" style="color: gold"></i>
+            <i class="fa-solid fa-download" style="color: green"></i>
+            <i class="fa-solid fa-upload" style="color: red"></i>
+            <i class="fa-solid fa-rotate-left" style="color:#FF9933"></i>
+            <i class="fa-solid fa-rotate-right" style="color: #0099FF"></i>
+        </div>
+
+
+
+
+    </div>
+
+    <script src="tools.js"></script>
+</body>
+</html>
