@@ -40,7 +40,9 @@ stickyNoteIcon.addEventListener("click", (e) => {
     </div>
     `;
 
-    createSticky(stickyTemplateHTML);
+    socket.emit("createSticky", stickyTemplateHTML);
+
+    // createSticky(stickyTemplateHTML);
 })
 
 uploadIcon.addEventListener("click", (e) => {
@@ -62,6 +64,7 @@ uploadIcon.addEventListener("click", (e) => {
             <img src="${url}"/>
         </div>
         `;
+
         createSticky(stickyTemplateHTML);
     })
 })

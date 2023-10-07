@@ -29,18 +29,35 @@ tool.lineWidth = penWidth;
 canvas.addEventListener("mousedown", (e) => {
     mouseDown = true;
     const rect = canvas.getBoundingClientRect();
-    beginPath({
+
+    // beginPath({
+    //     x: e.clientX - rect.left,
+    //     y: e.clientY - rect.top
+    // });
+
+    let data = {
         x: e.clientX - rect.left,
         y: e.clientY - rect.top
-    });
+    }
+
+    socket.emit("beginPath", data);
 })
 canvas.addEventListener("mousemove", (e) => {
     if(mouseDown){
         const rect = canvas.getBoundingClientRect();
-        drawStroke({
+        // drawStroke({
+        //     x: e.clientX - rect.left,
+        //     y: e.clientY - rect.top
+        // });
+
+        let data = {
             x: e.clientX - rect.left,
-            y: e.clientY - rect.top
-        });
+            y: e.clientY - rect.top,
+            color: eraserFlag ? eraserColor : penColor,
+            width: eraserFlag ? eraserWidth : penWidth
+        }
+
+        socket.emit("drawStroke", data);
     }
 })
 canvas.addEventListener("mouseup", (e) => {
@@ -54,21 +71,21 @@ canvas.addEventListener("mouseup", (e) => {
 undo.addEventListener("click", (e) => {
     if (track > 0) track--;
     // track action
-    let trackObj = {
+    let data = {
         trackValue: track,
         undoRedoTracker
     }
-    undoRedoCanvas(trackObj);
+    socket.emit("redoUndo", data);
 
 })
 redo.addEventListener("click", (e) => {
     if (track < undoRedoTracker.length-1) track++;
     // track action
-    let trackObj = {
+    let data = {
         trackValue: track,
         undoRedoTracker
     }
-    undoRedoCanvas(trackObj);
+    socket.emit("redoUndo", data);
 })
 
 pencilColor.forEach((colorElem) => {
@@ -128,3 +145,19 @@ function drawStroke(strokeObj) {
     tool.lineTo(strokeObj.x, strokeObj.y);
     tool.stroke();
 }
+
+
+// ****************************************************
+
+socket.on("beginPath", (data) => {
+    beginPath(data);
+})
+socket.on("drawStroke", (data) => {
+    drawStroke(data);
+})
+socket.on("redoUndo", (data) => {
+    undoRedoCanvas(data);
+})
+socket.on("createSticky", (data) => {
+    createSticky(data);
+})
