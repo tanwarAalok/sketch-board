@@ -1,9 +1,11 @@
 const express = require('express');
 const {Server} = require('socket.io');
+const cors = require('cors')
 
 const app = express();
 let PORT = 3000;
 
+app.use(cors())
 app.use(express.static("public"));
 
 let server = app.listen(PORT, () => {
